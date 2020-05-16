@@ -20,7 +20,7 @@ summary of the RoBMA object.
 ## S3 method for class 'RoBMA'
 summary(
   object,
-  type = "ensemble",
+  type = if (diagnostics) "models" else "ensemble",
   conditional = FALSE,
   diagnostics = FALSE,
   include_theta = FALSE,
@@ -109,6 +109,36 @@ Defaults to <code>3</code>.</p>
 
 <p><code><a href="RoBMA.html">RoBMA()</a></code> <code><a href="diagnostics.html">diagnostics()</a></code>
 </p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+# using the example data from Anderson et al. 2010 and fitting the default model
+# (note that the model can take a while to fit)
+fit &lt;- RoBMA(r = Anderson2010$r, n = Anderson2010$n, study_names = Anderson2010$labels)
+
+# summary can provide many details about the model
+summary(fit)
+
+# note that the summary function contains additional arguments that allow to obtain specific output
+# i.e, the conditional estimates (assuming that the non-null models are true) can be obtained
+summary(fit, conditional = TRUE)
+
+# overview of the models and their prior and posterior probability, marginal likelihood,
+# and inclusion Bayes factor:
+summary(fit, type = "models")
+
+# and the model diagnostics overview, containing maximum R-hat and minimum ESS across parameters
+# but see '?diagnostics' for diagnostics plots for individual model parameters
+summary(fit, type = "models", diagnostics = TRUE)
+
+# summary of individual models and their parameters can be further obtained by
+summary(fit, type = "individual")
+
+
+</pre>
 
 <hr /><div style="text-align: center;">[Package <em>RoBMA</em> version 0.0.0.9000 <a href="00Index.html">Index</a>]</div>
 </body></html>

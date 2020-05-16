@@ -1,3 +1,5 @@
+Anderson2010            27 experimental studies from from Anderson et
+                        al. (2010) that meet the best practice criteria
 RoBMA                   Estimate a Robust Bayesian Meta-Analysis
 check_setup             Prints summary of '"RoBMA"' model implied by
                         the specified priors

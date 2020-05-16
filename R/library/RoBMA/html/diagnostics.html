@@ -24,7 +24,7 @@ or even more detailed information by
 diagnostics(
   fit,
   parameter,
-  type = c("chains", "autocorrelation", "densities"),
+  type,
   plot_type = "base",
   show_figures = if (parameter == "omega") -1 else NULL,
   show_models = NULL,
@@ -111,6 +111,31 @@ Defaults to <code>TRUE</code> when more than one model is selected.</p>
 
 <p><code><a href="RoBMA.html">RoBMA()</a></code>, <code><a href="summary.RoBMA.html">summary.RoBMA()</a></code>
 </p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+# using the example data from Anderson et al. 2010 and fitting the default model
+# (note that the model can take a while to fit)
+fit &lt;- RoBMA(r = Anderson2010$r, n = Anderson2010$n, study_names = Anderson2010$labels)
+
+### ggplot2 version of all of the plots can be obtained by adding 'model_type = "ggplot"
+# diagnostics function allows to visualize diagnostics of a fitted RoBMA object, for example,
+# the trace plot for the mean parameter in each model model
+diagnostics(fit, parameter = "mu", type = "chain")
+
+# in order to show the trace plot only for the 11th model, add show_models parameter
+diagnostics(fit, parameter = "mu", type = "chain", show_models = 11)
+
+# furthermore, the autocorrelations
+diagnostics(fit, parameter = "mu", type = "autocorrelation")
+
+# and overlying densities for each plot can also be visualize
+diagnostics(fit, parameter = "mu", type = "densities")
+
+</pre>
 
 <hr /><div style="text-align: center;">[Package <em>RoBMA</em> version 0.0.0.9000 <a href="00Index.html">Index</a>]</div>
 </body></html>

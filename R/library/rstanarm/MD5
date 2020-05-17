@@ -1,5 +1,5 @@
 ba3253ee5788298b84650c7a3f6f95c9 *CITATION
-093183f380e2bcb734aa611bc55f7bc7 *DESCRIPTION
+78cd5b580fd955d370e00b34d7e355f6 *DESCRIPTION
 ddd684efd2562510c6b6a1ee8850aaca *INDEX
 d71ef4bea9e4914551ca775fcb0ccf43 *Meta/Rd.rds
 7dcd339f05b629e5a5af70894508569f *Meta/data.rds
@@ -8,7 +8,7 @@ ac39719e60fb812de152670cc3e9c3b3 *Meta/demo.rds
 1c8af011a23fa4fa0a49f04554a028b2 *Meta/hsearch.rds
 55cb5120c8db12be926641e8bf605420 *Meta/links.rds
 19f090fdf1c8e28defb6b3b94920a6b1 *Meta/nsInfo.rds
-2e115e95102edab2f2d026e806e6044e *Meta/package.rds
+dcc818b30876e848baa60d122923d54b *Meta/package.rds
 dfb4449f2f5d27ee6140af3656703d75 *Meta/vignette.rds
 85d31b7a272792ea0bc90f436456643e *NAMESPACE
 1a03474e1c9776350eee346a657e9ea7 *NEWS.md
@@ -91,15 +91,15 @@ d448e1dc3115f6a4046909d206a7e8b4 *doc/summary_by_poststrat_var.rda
 f1a65a71a7aa8129a5d44d03757ed3a9 *help/AnIndex
 a7c8ae0746c4360234e8377009b32479 *help/aliases.rds
 5fad10a5cc62c59ea429a5ce90191e2e *help/figures/stanlogo.png
-8531ec829c70cfb4895badb4be8c61ec *help/paths.rds
-3013bcd035089a3eae842edab622a817 *help/rstanarm.rdb
-ecc2bc915def8d2d3590f0862cdeec7a *help/rstanarm.rdx
+74aa80bdd5212a16cad0d05684bbc016 *help/paths.rds
+4a731f045b8176970c990aefe326afc5 *help/rstanarm.rdb
+f091f15716aec3151c6de3ee38e9809e *help/rstanarm.rdx
 c13faa161f91ffb3a918e993b948ef2e *html/00Index.html
 b6763e6916890c631fdc3f2643803b1a *html/R.css
 dd884b29294afb2fbfb9c914577c34b4 *include/csr_matrix_times_vector2.hpp
 cdf3757661ba24b1e57c1010c101dd18 *include/meta_header.hpp
 852ae3b00db277a79d623be727ab9dc2 *include/tests.cpp
-c12e5f67c0997b998c8494d62cd69f9a *libs/i386/rstanarm.dll
+d91176bf1575894c7a011eb9622fdd4f *libs/i386/rstanarm.dll
 03bd75a87955fe56806d856d340b6556 *libs/i386/symbols.rds
-b30498f63ce5979fb6f4bd751caa0adb *libs/x64/rstanarm.dll
+33b6e3ee6d94113b24e5941069cc6f31 *libs/x64/rstanarm.dll
 28471d7c78f64d8acf997b4b7b052130 *libs/x64/symbols.rds

@@ -1,8 +1,184 @@
 \name{NEWS}
 \title{NEWS file for the survival package}
+\section{Changes in version 3.1-12}{
+  \itemize{
+    \item Change the default for a robust variance: if there is a
+    cluster argument, non-integer case weight, or an id statement and
+    at least one id has more than one event.
+    \item cox.zph would fail if the coxph fit had NA coefficients
+    (something that used to work).  Add a test case to futureproof
+    this.  Caught by Ville Ponkilainen.
+    \item Minor: pyears + data.frame option would not preserve the order
+    of factor levels from a tcut operator.  
+    \item Edge case from Andrea Jaensch: a coxph model with strata +
+    psline terms, plus a (time1, time2) data set containing observations
+    that do not overlap any events, in just the right spot, could cause an
+    infinite loop in agmart3.c.
+    \item Add subset and na.action arguments to survcheck.
+    \item Minor updates to plot.survfit and survcheck.
+    \item Add cluster= option to replace +cluster() in a formula.
+    Remove all mention of the latter from documentation and
+    examples. Make the cluster, id, and robust options consistent across
+    all the functions.
+    \item Fix bug in plot.survfit with xaxs='S'.  At some point one line
+     of code got lost.  
+}}
+
+\section{Changes in version 3.1-11}{
+  \itemize{
+    \item Add 'n' vector to survcheck, update tests.
+    \item Improve multistate coxph printout
+    \item Fix a memory reference error in multicheck.c
+}}
+
+\section{Changes in version 3.1-10}{
+  \itemize{
+    \item Fix error in concordance(fit, newdata= xxx): it used the old
+    data at one point.  Pointed out by Matjin van't Hooft.
+    \item Minor update to tmerge -- print a warning when a user attempts
+    to update a variable using tdc, namely that this results in complete
+    replacement of said variable, with no retention of prior values.
+    \item Minor fixes to plot.survfit, when both xlim and xaxs='S' are
+    specified.  Error and suggested fixes from Heinz Tuechler.
+    \item Two failures in makepredictcall.pspline, found by 2 different
+    users, both cases of options that should have been carried forward.
+    A subsequent termplot() call failed if pspline had 'nterm' or
+    'combine'.
+    \item Fix memory leak (forgotten PROTECT) in zph[12].c; caught by B Ripley
+}}
+
+\section{Changes in version 3.1-9}{
+  \itemize{
+    \item The plot.cox.zph function would fail for a stratified model,
+    if some covariate was a constant in one of the strata.  The cox.zph
+    routine correctly labeled those points as uninformative via NA, the
+    plot routine needed to actually ignore them.
+}}
+
+\section{Changes in version 3.1-8}{
+  \itemize{
+    \item For a multistate model with no covariates, the start.time
+    value (if present) was inadvertently omitted from the result.  This
+    affects the default plot.
+    \item Per user request, the tmerge function can now use Dates as the
+    time variable for the merge.
+    \item Fix an invalid read (one element past the end of a vector)
+    that could occur in tmerge.c; reported by Brian Ripley.
+    \item A multi-state coxph model with strata would fail when parsing
+    the formula, pointed out by Martin van't Hooft. 
+}}
+
+\section{Changes in version 3.1-7}{
+  \itemize{
+    \item For a coxph model with covariate*strata interactions the
+    information matrix will be block diagonal, and the cox.zph function
+    would generate a 0/0 when scaling it for plots.  This led to a
+    BLAS error on some architectures (reported by B. Ripley within 24
+    hours of 3.1-6 being published on CRAN).  Tests were unaffected,
+    subsequent plots fail due to an infinite axis.
+    Repair, and add more checks to the test suite.
+}}
+
+\section{Change in version 3.1-6}{
+  \itemize{
+    \item Repair issues in coxph.getdata and lines.survfit that were
+    found with reverse dependency checks
+    \item Submit to CRAN
+}}
+
+\section{Changes in version 3.1-5}{
+  \itemize{
+    \item Update coxph.getdata and coxph.detail to work with coxphms
+    objects.  A deficiency in the first affected cox.zph results for
+    multi-state coxph fits.
+    \item Add a formal test suite for the cox.zph routine.
+}}
+
+\section{Changes in version 3.1-4}{
+  \itemize{
+    \item Move some vignettes to the vignette2 directory, found on the
+    github website.  Add an index to those files.
+    \item Add the timefix option to coxph results, and ensure that
+    downstream survfit calls correctly retain it.
+    \item Expand the main survival vignette.
+}}
+
+\section{Changes in version 3.1-3}{
+  \itemize{
+    \item The results of anova.coxph were incorrect for the case of a
+    single model with ties="breslow" and tied event times: the breslow
+    option was not being passed forward to the secondary fits.
+    \item Add more sanity checks to anova.coxph, e.g., all models must
+    have used the same ties option.
+    \item Update tmerge to allow more variable types as the argument to
+    tdc.  A user pointed out that Dates were not preserved; now fixed.
+}}
+
+\section{Changes in version 3.1-2}{
+  \itemize{
+    \item The cox.zph command now refuses models with tt() terms, before
+    it had an incorrect computation.
+    \item Fix 2 errors in plot, for survfit of a coxph model. (I had not
+    scanned the pdf pages from the vignettes, which is the only way to
+    verify plots.)
+    \item Fix labeling error for combination of pyears, tcut variable,
+    data.frame option.  (The numerical values were correct).
+}}
+
+\section{Changes in version 3.1-1}{
+  \itemize{
+    \item Fix error in [.cox.zph, when applied to a stratified model
+}}
+
+\section{Changes in version 3.1-0}{
+  \itemize{
+    \item Respond to some CRAN queries and resubmit.
+    \item Better documentation of the survfit0 routine
+    \item Add the sas.Rnw vignette to inst/doc: it takes too long to
+    run for inclusion in the vignettes directory
+    \item Fix two edge case errors pointed out on github: coxph on a
+    data set with 0 events, and models with only a frailty term
+    \item Update residuals.coxph to deal with larger matrices, i.e.,
+    change two .C calls to .Call
+}}
+
+\section{Changes in version 3.0-11}{
+  \itemize{
+    \item Multiple small updates, after running tests for all
+    reverse dependencies
+    \item Send to CRAN
+}}
+  
+\section{Changes in version 3.0-10}{
+  \itemize{
+    \item Make sure all calls to data.frame explicitly select a value
+    for the stringsAsFactors option.
+    \item Updates to cox.zph for the singledf option
+    \item Add formal test of the cox.zph statistics
+    \item Add the sas vignette to the vignettes2 directory (it takes too
+    long to run).
+}}
+\section{Changes in version 3.0}{
+  \itemize{
+    \item Major revision of the survfit routines, see the survival vignette.
+    \item Allow multi-state coxph models.
+    \item Rename remaining .S files as .R
+    \item vcov of a survreg object now contains dimnames (important for the
+    stats::confint function)
+    \item Subscripting survfit object removes the na.action.  This is a
+    loss in the sense that the printout no longer tells us that
+    observations were removed, but the information about which and how
+    many rows were removed was incorrect after the selection.
+    \item The survexp function, applied to a coxph model with strata,
+    would sometimes produce extraneous y=0 values at the start of a
+    curve.
+    \item Multiple small bug fixes.
+}}
 \section{Changes in version 2.44-1}{
   \itemize{
     \item Fix error in survreg when the init argument was used.
+    \item B. Ripley found/fixed an incorrect size in survfitkm.c, that
+    could lead to memory overwrite and a hard crash. 
 }}
 
 \section{Changes in version 2.44-0}{

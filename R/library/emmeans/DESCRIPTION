@@ -1,8 +1,8 @@
 Package: emmeans
 Type: Package
 Title: Estimated Marginal Means, aka Least-Squares Means
-Version: 1.4.690003
-Date: 2020-05-17
+Version: 1.4.7
+Date: 2020-05-25
 Authors@R: c(person("Russell", "Lenth", role = c("aut", "cre", "cph"), 
     email = "russell-lenth@uiowa.edu"),
     person("Henrik", "Singmann", role = "ctb"),
@@ -40,17 +40,17 @@ RemoteHost: api.github.com
 RemoteRepo: emmeans
 RemoteUsername: rvlenth
 RemoteRef: master
-RemoteSha: a42455ece2a02699b2cf3d16258da8b93eb6f3c9
+RemoteSha: e5d8cdbea5f171c3339f42f40dc90f1ac5cc37c8
 GithubRepo: emmeans
 GithubUsername: rvlenth
 GithubRef: master
-GithubSHA1: a42455ece2a02699b2cf3d16258da8b93eb6f3c9
+GithubSHA1: e5d8cdbea5f171c3339f42f40dc90f1ac5cc37c8
 NeedsCompilation: no
-Packaged: 2020-05-17 16:34:49 UTC; Frantisek
+Packaged: 2020-05-27 10:41:54 UTC; Frantisek
 Author: Russell Lenth [aut, cre, cph],
   Henrik Singmann [ctb],
   Jonathon Love [ctb],
   Paul Buerkner [ctb],
   Maxime Herve [ctb]
 Maintainer: Russell Lenth <russell-lenth@uiowa.edu>
-Built: R 3.6.1; ; 2020-05-17 16:34:51 UTC; windows
+Built: R 3.6.3; ; 2020-05-27 10:41:55 UTC; windows
